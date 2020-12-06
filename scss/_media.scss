@@ -1,0 +1,330 @@
+@import 'variables';
+
+@media only screen and(max-width: 1024px) {
+  html {
+    font-size: 50%;
+    letter-spacing: 1.5px;
+  }
+
+  .mobile-nav {
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+}
+
+// BP 768px -- Tablets etc
+@media only screen and(max-width: 768px) {
+  html {
+    font-size: 40%;
+    letter-spacing: 1.5px;
+  }
+
+  .main-nav {
+  }
+
+  .logo {
+    font-size: 1rem;
+
+    & p {
+      letter-spacing: 4px;
+    }
+  }
+}
+
+// Mobile Menu -- BP 700 px
+
+// Hide on larger screens
+@media only screen and (min-width: 700px) {
+  #mobile-nav {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+// show on smaller screens
+@media only screen and (max-width: 699px) {
+  .main-nav ul {
+    visibility: hidden;
+    display: none;
+  }
+
+  #mobile-nav {
+    // & .menu {
+    //   width: 100%;
+    // }
+
+    & .menu__content > div > ul {
+      display: block;
+      z-index: 800;
+      font-size: 4.5rem;
+      overflow: hidden;
+
+      & li a {
+        color: $color-light;
+
+        &:hover {
+          background-image: linear-gradient(
+            45deg,
+            $color-primary,
+            rgba($color-accent-2, 0.7)
+          );
+          background-size: 100%;
+          -webkit-background-clip: text;
+          -moz-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -moz-text-fill-color: transparent;
+        }
+      }
+    }
+
+    & .toggler:checked ~ .menu__content > div > ul {
+      visibility: visible;
+    }
+
+    & .toggler:checked ~ .menu__content > div {
+      transform: scale(1);
+      transition-duration: $menu-speed;
+    }
+
+    & .toggler:checked ~ .menu__content > div > div {
+      opacity: 1;
+      transition: opacity 0.4s ease 0.4s;
+    }
+  }
+
+  #mobile-nav {
+    & .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+
+      z-index: 300;
+
+      & .toggler {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        cursor: pointer;
+        width: 8rem;
+        height: 8rem;
+        opacity: 0;
+        margin-right: 3rem;
+      }
+
+      &__hamburger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 8rem;
+        height: 8rem;
+        padding: 1.4rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 3rem;
+      }
+
+      // Hamburger Lines
+
+      &__hamburger > div {
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: 2px;
+        background: $color-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 4000;
+
+        // Top and Bottom Lines
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          z-index: 1;
+          top: -10px;
+          width: 100%;
+          height: 2px;
+          background: inherit;
+          transition: all 0.4s ease;
+        }
+        &::after {
+          top: 10px;
+        }
+      }
+
+      & .toggler:checked + .menu__hamburger > div {
+        transform: rotate(135deg);
+        transition: all 0.4s ease;
+      }
+
+      & .toggler:checked + .menu__hamburger > div:before,
+      & .toggler:checked + .menu__hamburger > div:after {
+        top: 0;
+        transform: rotate(90deg);
+      }
+
+      // Rotate on Hover when checked
+      & .toggler:checked:hover + .menu__hamburger > div {
+        transform: rotate(225deg);
+      }
+
+      // Show Menu on Click  -- See also Toggler:checked at start of media query
+
+      & .toggler:checked ~ .menu__content {
+        visibility: visible;
+      }
+
+      &__content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > div {
+          background: rgba(0, 0, 0, 0.8);
+          border-radius: 50%;
+          width: 200vw;
+          height: 200vh;
+          display: flex;
+          flex: none;
+          align-items: center;
+          justify-content: center;
+          transform: scale(0);
+          transition: all 0.4s ease;
+          z-index: 600;
+
+          & > div {
+            text-align: center;
+            max-width: 90vw;
+            max-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+
+            & > ul > li {
+              list-style: none;
+              color: $color-light;
+              padding: 4rem;
+
+              & a {
+                background: linear-gradient(#eee, #333);
+                background-clip: text;
+                text-fill-color: transparent;
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.6s ease;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// BP 500px
+
+@media only screen and (max-width: 500px) {
+  #header-home {
+    .header-content {
+      grid-column: 1 / span 2;
+      padding: 0 5rem;
+      display: block;
+      margin: 32vh auto;
+    }
+  }
+
+  #specialties {
+    .home-a--content {
+      display: block;
+
+      & .specials__item {
+        margin-bottom: 5rem;
+      }
+    }
+
+    .tech {
+      margin-top: 2rem;
+
+      &__icons {
+        font-size: 3rem;
+        margin-top: 3rem;
+      }
+
+      p {
+        display: none;
+      }
+    }
+  }
+
+  #projects {
+    .gallery {
+      display: block;
+    }
+  }
+
+  #contact {
+    & .home-d--body {
+      display: block;
+      margin: 0;
+
+      & .form {
+        margin: 1rem;
+
+        &__container {
+          margin-bottom: 4rem;
+          width: 100%;
+
+          &--content {
+            margin: 3rem;
+          }
+        }
+      }
+    }
+  }
+
+  #footer {
+    flex-direction: column;
+    align-items: center;
+
+    & .footer {
+      &__links {
+        display: block;
+        text-align: center;
+        padding: 2rem 2rem;
+        order: 2;
+      }
+
+      &__logo {
+        order: 1;
+      }
+
+      &__copyright {
+        order: 3;
+      }
+    }
+  }
+
+  // Construction.scss
+  .wrapper {
+    .center-box {
+      margin: 3rem;
+      & h1 {
+        font-size: 8rem;
+      }
+    }
+  }
+}

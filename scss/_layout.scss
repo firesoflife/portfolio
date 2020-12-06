@@ -1,0 +1,140 @@
+#header {
+  &-home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10rem 1fr;
+  }
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__items {
+    margin-top: 25%;
+  }
+}
+
+.main-nav {
+  grid-column: 1 / 3;
+}
+
+.section__title--container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  & * {
+    text-align: center;
+  }
+}
+
+#projects {
+  .gallery {
+    padding: 8rem 0;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 5vw);
+    grid-gap: 1.5rem;
+
+    &__item--1 {
+      grid-column: 1 / span 4;
+      grid-row: 1 / span 5;
+    }
+
+    &__item--2 {
+      grid-column: 5 / 10;
+      grid-row: 1 / span 4;
+    }
+
+    &__item--3 {
+      grid-column: 10 / 13;
+      grid-row: 1/ 9;
+    }
+
+    &__item--4 {
+      grid-column: 1 / span 4;
+      grid-row: 6 / 9;
+    }
+
+    &__item--5 {
+      grid-column: 5 / 10;
+      grid-row: 8 / 13;
+    }
+
+    &__item--6 {
+      grid-column: 1 / 5;
+      grid-row: 9 / 13;
+    }
+
+    &__item--7 {
+      grid-column: 5 / 10;
+      grid-row: 5 / 8;
+    }
+
+    &__item--8 {
+      grid-column: 10 / 13;
+      grid-row: 9 / 13;
+    }
+  }
+}
+
+#home-c {
+  & .code-timeline {
+  }
+}
+
+#contact {
+  background: $color-light;
+
+  & .home-d--body {
+    height: 100%;
+    margin-top: 5rem;
+
+    display: grid;
+    grid-template-areas:
+      'profile form form'
+      'contact form form';
+    grid-template-columns: 35% auto;
+
+    & .profile {
+      min-height: min-content;
+      grid-area: profile;
+      margin-bottom: 4rem;
+    }
+
+    & .contact {
+      grid-area: contact;
+    }
+
+    & .form {
+      grid-area: form;
+    }
+  }
+}
+
+#footer {
+  > div {
+    width: 100%;
+    margin: 3rem;
+  }
+  display: flex;
+  justify-content: space-around;
+
+  & .footer {
+    &__logo {
+      margin-bottom: 5rem;
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__copy {
+      display: flex;
+    }
+  }
+}
