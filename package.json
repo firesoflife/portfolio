@@ -1,15 +1,14 @@
 {
-  "name": "portfolio",
+  "name": "portfolio2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Portfolio Website",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Bryan Goertz",
   "license": "ISC",
-  "dependencies": {
-    "node-sass": "^5.0.0"
+  "devDependencies": {
+    "node-sass": "^4.14.1"
   }
 }
